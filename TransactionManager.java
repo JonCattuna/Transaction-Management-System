@@ -1,9 +1,10 @@
 
-public class TransactionManager {
+public class TransactionManager 
+{
 
-	
 	public void run()
 	{
 		
 	}
+	
 }

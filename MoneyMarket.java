@@ -1,4 +1,5 @@
 
-public class MoneyMarket extends Account {
+public class MoneyMarket extends Account 
+{
 	private int withdrawals;
 }
