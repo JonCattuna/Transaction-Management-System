@@ -10,6 +10,15 @@ public class TransactionManager
 	{
 		manager = new TransactionManager();
 	}
+	
+	/*private Account parseCommand(String[] cmdArray)
+	{
+		String first = cmdArray[1];
+		String last = cmdArray[2];
+		Float amount = Float.parseFloat(cmdArray[3]);
+		boolean loyal = Boolean.parseBoolean(cmdArray[4]);
+		return new Account(first, last, amount, loyal);
+	}*/
 	public void run()
 	{
 		System.out.println("Running manager");
