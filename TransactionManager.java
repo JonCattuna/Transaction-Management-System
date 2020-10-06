@@ -3,7 +3,11 @@ import java.util.Scanner;
 
 public class TransactionManager 
 {
-	
+	String first;
+	String last;
+	Float amount;
+	boolean loyal;
+	String date;
 	private TransactionManager manager;
 	
 	
@@ -20,6 +24,7 @@ public class TransactionManager
 		boolean loyal = Boolean.parseBoolean(cmdArray[4]);
 		return new Account(first, last, amount, loyal);
 	}*/
+	
 	public void run()
 	{
 		System.out.println("Running manager");
@@ -34,54 +39,96 @@ public class TransactionManager
 			{
 				case "OC":
 					//Opens checking account with first last amount loyal
+					first = cmdArray[1];
+					last = cmdArray[2];
+					amount = Float.parseFloat(cmdArray[3]);
+					date = cmdArray[4];
+					loyal = Boolean.parseBoolean(cmdArray[5]);
 					System.out.println("Account opened and added to the database.");
 					break;
 				case "OS":
 					//Opens savings account with first last amount loyal
+					first = cmdArray[1];
+					last = cmdArray[2];
+					amount = Float.parseFloat(cmdArray[3]);
+					date = cmdArray[4];
+					loyal = Boolean.parseBoolean(cmdArray[5]);
 					System.out.println("Account opened and added to the database.");
 					break;
 				case "OM":
 					//Opens money market account with first last amount
+					first = cmdArray[1];
+					last = cmdArray[2];
+					amount = Float.parseFloat(cmdArray[3]);
+					date = cmdArray[4];
+					loyal = Boolean.parseBoolean(cmdArray[5]);
 					System.out.println("Account opened and added to the database.");
 					break;
 				case "CC":
 					//Close checking account with first last
+					first = cmdArray[1];
+					last = cmdArray[2];
+					
 					System.out.println("Account closed and removed from the database.");
 					break;
 				case "CS":
 					//close savings account with first last
+					first = cmdArray[1];
+					last = cmdArray[2];
+					
 					System.out.println("Account closed and removed from the database.");
 					break;
 				case "CM":
 					//close money market amount with first last
+					first = cmdArray[1];
+					last = cmdArray[2];
+					
 					System.out.println("Account closed and removed from the database.");
 					break;
 				case "DC":
 					//depoist to checking first last amount
+					first = cmdArray[1];
+					last = cmdArray[2];
+					amount = Float.parseFloat(cmdArray[3]);
 					System.out.println(/*amount + */"Deposited into the account.");
 					break;
 				case "DS":
 					//deposit to savings first last amount
+					first = cmdArray[1];
+					last = cmdArray[2];
+					amount = Float.parseFloat(cmdArray[3]);
 					System.out.println(/*amount + */"Deposited into the account.");
 					break;
 				case "DM":
 					//deposit to money market first last amount
+					first = cmdArray[1];
+					last = cmdArray[2];
+					amount = Float.parseFloat(cmdArray[3]);
 					System.out.println(/*amount + */"Deposited into the account.");
 					break;
 				case "WC":
 					//withdraw checing first last amount
+					first = cmdArray[1];
+					last = cmdArray[2];
+					amount = Float.parseFloat(cmdArray[3]);
 					System.out.println(/*amount + */"withdrawn from the account.");
 					//if withdraw is over total account amount
 					System.out.println("Insufficient funds");
 					break;
 				case "WS":
 					//withdraw savings first last amount
+					first = cmdArray[1];
+					last = cmdArray[2];
+					amount = Float.parseFloat(cmdArray[3]);
 					System.out.println(/*amount + */"withdrawn from the account.");
 					//if withdraw is over total account amount
 					System.out.println("Insufficient funds");
 					break;
 				case "WM":
 					//withdraw money market first last amount'
+					first = cmdArray[1];
+					last = cmdArray[2];
+					amount = Float.parseFloat(cmdArray[3]);
 					System.out.println(/*amount + */"withdrawn from the account.");
 					//if withdraw is over total account amount
 					System.out.println("Insufficient funds");
