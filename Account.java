@@ -14,13 +14,13 @@ public abstract class Account
 	{
 		
 	} //increase the balance by amount
-	
+	@Override
 	public String toString() 
 	{
-		
+		return super.toString();
 	}
 	
-	public abstract double monthlyInterest
+	public abstract double monthlyInterest()
 	{
 		
 	}

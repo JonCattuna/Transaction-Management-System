@@ -3,6 +3,7 @@ public class AccountDatabase
 {
 	private Account[] accounts;
 	private int size;
+	
 	private int find(Account account) 
 	{ 
 		
@@ -10,7 +11,7 @@ public class AccountDatabase
 	
 	private void grow() 
 	{ 
-		
+		//USE ARRAYCOPY(0,0, ARRAYLENGTH) TO MAKE A NEW ARRAY WITH 5 EXTRA SPOTS
 	}
 	
 	public boolean add(Account account) 
@@ -46,7 +47,8 @@ public class AccountDatabase
 	
 	public void printByDateOpen()
 	{ 
-		
+		//use compareto to find dates
+		//Slection sort will work or quick sort
 	}
 	
 	public void printByLastName()
