@@ -8,25 +8,25 @@ public abstract class Account
 	public void debit(double amount) 
 	{
 		
-	} //decrease the balance by amount
+	}
+	 //decrease the balance by amount;
 	
 	public void credit(double amount)
 	{
 		
-	} //increase the balance by amount
+	}
+	 //increase the balance by amount
 	@Override
-	public String toString() 
+	public String toString()
 	{
-		return super.toString();
-	}
-	
-	public abstract double monthlyInterest()
-	{
+		return null;
 		
 	}
 	
-	public abstract double monthlyFee() 
-	{
-		
-	}
+	
+	public abstract double monthlyInterest();
+	
+	
+	public abstract double monthlyFee();
+	
 }

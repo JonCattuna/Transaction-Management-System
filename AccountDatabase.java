@@ -5,7 +5,8 @@ public class AccountDatabase
 	private int size;
 	
 	private int find(Account account) 
-	{ 
+	{
+		return size; 
 		
 	}
 	
