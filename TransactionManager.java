@@ -8,12 +8,13 @@ public class TransactionManager
 	boolean loyal;
 	String date;
 	private TransactionManager manager;
+	//private AccountDatabase database;
 	
-	private AccountDatabase[] =  new AccountDatabase();
+	AccountDatabase database = new AccountDatabase();
 	
-	public TransactionManager()
+	private TransactionManager()
 	{
-		//manager = new TransactionManager();
+		manager = new TransactionManager();
 	}
 	
 	/*private Account parseCommand(String[] cmdArray)
@@ -46,6 +47,7 @@ public class TransactionManager
 						amount = Float.parseFloat(cmdArray[3]);
 						date = cmdArray[4];
 						loyal = Boolean.parseBoolean(cmdArray[5]);
+						database.add(first);
 						System.out.println("Account opened and added to the database.");
 					}
 					else
@@ -62,6 +64,7 @@ public class TransactionManager
 						amount = Float.parseFloat(cmdArray[3]);
 						date = cmdArray[4];
 						loyal = Boolean.parseBoolean(cmdArray[5]);
+						database.add(first);
 						System.out.println("Account opened and added to the database.");
 					}
 					else
@@ -78,6 +81,7 @@ public class TransactionManager
 						amount = Float.parseFloat(cmdArray[3]);
 						date = cmdArray[4];
 						loyal = Boolean.parseBoolean(cmdArray[5]);
+						database.add(first);
 						System.out.println("Account opened and added to the database.");
 					}
 					else
