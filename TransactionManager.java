@@ -233,16 +233,19 @@ public class TransactionManager
 				case "PA":
 					//print list of all acounts
 					System.out.println("--Listing accounts in the database--");
-					
+					database.printAccounts();
 					System.out.println("--end of listing--");
 					break;
 				case "PD":
 					System.out.println("--Printing statements by data opened--");
+					database.printByDateOpen();
 					//calculate list of monthly intrests + fees
 					//print account statements in sorted by opening dates
 					break;
 				case "PN":
 					System.out.println("--Printing statements by last name--");
+					
+					database.printByLastName();
 					//Same as PD, but sorted bt last names in acending order
 					break;
 				case "Q":

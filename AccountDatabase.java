@@ -48,13 +48,14 @@ public class AccountDatabase
 	
 	public void printByDateOpen()
 	{ 
+		sortByDateOpen();
 		//use compareto to find dates
 		//Slection sort will work or quick sort
 	}
 	
 	public void printByLastName()
 	{ 
-		
+		sortByLastName();
 	}
 	
 	public void printAccounts()

@@ -9,7 +9,7 @@ public abstract class Account
 	{
 		
 	}
-	 //decrease the balance by amount;
+	//decrease the balance by amount;
 	
 	public void credit(double amount)
 	{
