@@ -8,6 +8,9 @@ public class TransactionManager
 	boolean loyal;
 	String date;
 	private TransactionManager manager;
+	private Account Saccount;
+	private Account Caccount;
+	private Account Maccount;
 	//private AccountDatabase database;
 	
 	AccountDatabase database = new AccountDatabase();
@@ -47,7 +50,7 @@ public class TransactionManager
 						amount = Float.parseFloat(cmdArray[3]);
 						date = cmdArray[4];
 						loyal = Boolean.parseBoolean(cmdArray[5]);
-						database.add(first);
+						database.add(Caccount);
 						System.out.println("Account opened and added to the database.");
 					}
 					else
@@ -64,7 +67,7 @@ public class TransactionManager
 						amount = Float.parseFloat(cmdArray[3]);
 						date = cmdArray[4];
 						loyal = Boolean.parseBoolean(cmdArray[5]);
-						database.add(first);
+						database.add(Saccount);
 						System.out.println("Account opened and added to the database.");
 					}
 					else
@@ -81,7 +84,7 @@ public class TransactionManager
 						amount = Float.parseFloat(cmdArray[3]);
 						date = cmdArray[4];
 						loyal = Boolean.parseBoolean(cmdArray[5]);
-						database.add(first);
+						database.add(Maccount);
 						System.out.println("Account opened and added to the database.");
 					}
 					else
@@ -95,7 +98,7 @@ public class TransactionManager
 						//Close checking account with first last
 						first = cmdArray[1];
 						last = cmdArray[2];
-						
+						database.remove(Caccount);
 						System.out.println("Account closed and removed from the database.");
 					}
 					else
@@ -109,7 +112,7 @@ public class TransactionManager
 						//close savings account with first last
 						first = cmdArray[1];
 						last = cmdArray[2];
-						
+						database.remove(Saccount);
 						System.out.println("Account closed and removed from the database.");
 					}
 					else
@@ -123,7 +126,7 @@ public class TransactionManager
 						//close money market amount with first last
 						first = cmdArray[1];
 						last = cmdArray[2];
-						
+						database.remove(Maccount);
 						System.out.println("Account closed and removed from the database.");
 					}
 					else
@@ -138,6 +141,7 @@ public class TransactionManager
 						first = cmdArray[1];
 						last = cmdArray[2];
 						amount = Float.parseFloat(cmdArray[3]);
+						database.deposit(Caccount, amount);
 						System.out.println(/*amount + */"Deposited into the account.");
 					}
 					else
@@ -152,6 +156,7 @@ public class TransactionManager
 						first = cmdArray[1];
 						last = cmdArray[2];
 						amount = Float.parseFloat(cmdArray[3]);
+						database.deposit(Saccount, amount);
 						System.out.println(/*amount + */"Deposited into the account.");
 					}
 					else
@@ -166,6 +171,7 @@ public class TransactionManager
 						first = cmdArray[1];
 						last = cmdArray[2];
 						amount = Float.parseFloat(cmdArray[3]);
+						database.deposit(Maccount, amount);
 						System.out.println(/*amount + */"Deposited into the account.");
 					}
 					else
@@ -181,6 +187,7 @@ public class TransactionManager
 						last = cmdArray[2];
 						amount = Float.parseFloat(cmdArray[3]);
 						System.out.println(/*amount + */"withdrawn from the account.");
+						database.withdrawal(Caccount, amount);
 						//if withdraw is over total account amount
 						System.out.println("Insufficient funds");
 					}
@@ -197,6 +204,7 @@ public class TransactionManager
 						last = cmdArray[2];
 						amount = Float.parseFloat(cmdArray[3]);
 						System.out.println(/*amount + */"withdrawn from the account.");
+						database.withdrawal(Saccount, amount);
 						//if withdraw is over total account amount
 						System.out.println("Insufficient funds");
 					}
@@ -213,6 +221,7 @@ public class TransactionManager
 						last = cmdArray[2];
 						amount = Float.parseFloat(cmdArray[3]);
 						System.out.println(/*amount + */"withdrawn from the account.");
+						database.withdrawal(Maccount, amount);
 						//if withdraw is over total account amount
 						System.out.println("Insufficient funds");
 					}
