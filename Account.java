@@ -5,6 +5,13 @@ public abstract class Account
 	private double balance;
 	private Date dateOpen;
 	
+	
+	public Account(String fname, String lname, double amount, Date dateOpen)
+	{
+		this.holder = new Profile(fname, lname);
+		this.balance = amount;
+		this.dateOpen = dateOpen;
+	}
 	public void debit(double amount) 
 	{
 		
@@ -19,7 +26,7 @@ public abstract class Account
 	@Override
 	public String toString()
 	{
-		return null;
+		return this.holder.toString() + "" + this.balance;
 		
 	}
 	

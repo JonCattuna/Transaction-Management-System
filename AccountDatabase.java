@@ -17,22 +17,26 @@ public class AccountDatabase
 	
 	public boolean add(Account account) 
 	{
+		return false;
 		
 	} //return false if account exists
 	
 	public boolean remove(Account account)
-	{ 
+	{
+		return false; 
 		
 	} //return false if account doesn’t exist
 	
 	public boolean deposit(Account account, double amount)
-	{ 
+	{
+		return false; 
 		
 	}
 	//return 0: withdrawal successful, 1: insufficient funds, -1 account doesn’t exist
 	
 	public int withdrawal(Account account, double amount)
-	{ 
+	{
+		return size; 
 		
 	}
 	

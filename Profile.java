@@ -18,4 +18,9 @@ public class Profile
 	{
 		return lname;
 	}
+	
+	public String toString()
+	{
+		return this.fname + "" + this.lname;
+	}
 }

@@ -38,9 +38,11 @@ public class TransactionManager
 			Scanner input = new Scanner(System.in);
 			String cmd = input.nextLine();
 			String[] cmdArray = cmd.split(" ");
+			//Try {
 			
 			switch(cmdArray[0])
 			{
+				
 				case "OC":
 					if(cmdArray.length == 6)
 					{
@@ -254,7 +256,27 @@ public class TransactionManager
 					break;
 				default:
 					System.out.println("Invalid Command");
+					
+					
+				/*	
+				catch(NumberFormatException e)
+				{
+					System.out.println("Number format mismatch");
+				}
+				catch (InputMismatchException e)
+				{
+					System.out.println("Input data type mismatch");
+				}
+				
+				catch (Exception e)
+				{
+					System.out.println("Invalid Command");
+				}	
+				*/
+				
+				
 			}
+			//}
 		}
 	}
 	
