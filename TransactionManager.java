@@ -1,4 +1,12 @@
+
+
 import java.util.Scanner;
+
+/**
+ * This class is the interface class it holds the scanner and takes in the users input
+ * 
+ *
+ */
 
 public class TransactionManager 
 {
@@ -14,7 +22,9 @@ public class TransactionManager
 	//private AccountDatabase database;
 	
 	AccountDatabase database = new AccountDatabase();
-	
+	/**
+	 * private method creatings a transaction manager object
+	 */
 	private TransactionManager()
 	{
 		manager = new TransactionManager();
@@ -28,7 +38,9 @@ public class TransactionManager
 		boolean loyal = Boolean.parseBoolean(cmdArray[4]);
 		return new Account(first, last, amount, loyal);
 	}*/
-	
+	/**
+	 * creates the scanners and takes command line input uses switch cases to decifer input
+	 */
 	public void run()
 	{
 		System.out.println("Running manager");
