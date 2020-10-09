@@ -1,6 +1,6 @@
 /**
  * Savings account class, which creats savings account and checks if the customer is loyal
- * @author Starscream
+ *
  *
  */
 public class Savings extends Account
