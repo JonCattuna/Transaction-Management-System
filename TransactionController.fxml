@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TransactionController">
+  <tabs>
+    <Tab text="Menu">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="360.0" layoutX="1.0" layoutY="5.0" stroke="BLACK" strokeType="INSIDE" width="199.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f33" height="360.0" layoutX="195.0" layoutY="5.0" stroke="BLACK" strokeType="INSIDE" width="215.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffe41f" height="360.0" layoutX="407.0" layoutY="5.0" stroke="BLACK" strokeType="INSIDE" width="193.0" />
+                  <Button layoutX="62.0" layoutY="226.0" mnemonicParsing="false" text="Create" />
+                  <Button layoutX="271.0" layoutY="226.0" mnemonicParsing="false" text="Deposit" />
+                  <Button layoutX="483.0" layoutY="226.0" mnemonicParsing="false" text="Print" />
+                  <Text layoutX="19.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account managment">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="226.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Money Mangment">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="438.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Printing Options">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <RadioButton layoutX="59.0" layoutY="120.0" mnemonicParsing="false" onAction="#onCreatecClick" text="Create" />
+                  <RadioButton layoutX="59.0" layoutY="153.0" mnemonicParsing="false" text="Close" />
+                  <RadioButton layoutX="269.0" layoutY="153.0" mnemonicParsing="false" text="Withdraw" />
+                  <RadioButton layoutX="268.0" layoutY="120.0" mnemonicParsing="false" text="Deposit" />
+                  <RadioButton layoutX="441.0" layoutY="153.0" mnemonicParsing="false" text="Print by First Name" />
+                  <RadioButton layoutX="443.0" layoutY="120.0" mnemonicParsing="false" text="Print by Last Name" />
+                  <RadioButton layoutX="443.0" layoutY="185.0" mnemonicParsing="false" text="Standard Print" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Create">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="153.0" layoutY="172.0" mnemonicParsing="false" text="Create" />
+                  <RadioButton layoutX="238.0" layoutY="136.0" mnemonicParsing="false" text="Checking" />
+                  <RadioButton layoutX="239.0" layoutY="176.0" mnemonicParsing="false" text="Savings" />
+                  <RadioButton layoutX="240.0" layoutY="216.0" mnemonicParsing="false" text="Money Market" />
+                  <PasswordField layoutX="30.0" layoutY="64.0" promptText="First" />
+                  <PasswordField layoutX="226.0" layoutY="64.0" promptText="Last" />
+                  <DatePicker layoutX="405.0" layoutY="64.0" promptText="Date" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab text="Close">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="85.0" layoutY="146.0" mnemonicParsing="false" text="Close" />
+                  <RadioButton layoutX="168.0" layoutY="122.0" mnemonicParsing="false" text="Checking" />
+                  <RadioButton layoutX="168.0" layoutY="150.0" mnemonicParsing="false" text="Savings" />
+                  <RadioButton layoutX="168.0" layoutY="176.0" mnemonicParsing="false" text="Money Market" />
+                  <PasswordField layoutX="37.0" layoutY="68.0" promptText="Frist Name" />
+                  <PasswordField layoutX="202.0" layoutY="68.0" promptText="Last name" />
+                  <DatePicker layoutX="378.0" layoutY="68.0" promptText="Date" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Deposit">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="190.0" layoutY="185.0" mnemonicParsing="false" text="Deposit" />
+                  <PasswordField layoutX="14.0" layoutY="86.0" promptText="Frist Name" />
+                  <PasswordField layoutX="203.0" layoutY="86.0" promptText="Last name" />
+                  <DatePicker layoutX="392.0" layoutY="86.0" promptText="Date" />
+                  <TextField layoutX="260.0" layoutY="185.0" promptText="Amount" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Withdrawl">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="134.0" layoutY="206.0" mnemonicParsing="false" text="Withdraw" />
+                  <PasswordField layoutX="29.0" layoutY="88.0" promptText="Frist Name" />
+                  <PasswordField layoutX="215.0" layoutY="88.0" promptText="Last name" />
+                  <DatePicker layoutX="387.0" layoutY="88.0" promptText="Date" />
+                  <TextField layoutX="238.0" layoutY="206.0" promptText="Amount" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
