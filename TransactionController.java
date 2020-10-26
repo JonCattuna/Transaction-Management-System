@@ -52,88 +52,105 @@ public class TransactionController
     }
     
     @FXML
-    void AccountClose(ActionEvent event) {
-
+    void getDate(ActionEvent event) 
+    {
+    	//date text field to take input create/close/deposit/withdraw
     }
 
     @FXML
-    void AccountCreation(ActionEvent event) {
-
+    void getFirst(ActionEvent event) 
+    {
+    	//first name text field to take input create/close/deposit/withdraw
     }
 
     @FXML
-    void DepositClick(ActionEvent event) {
-
+    void getLast(ActionEvent event) 
+    {
+    	//last name text field to take input create/close/deposit/withdraw
+    }
+    
+    @FXML
+    void AccountClose(ActionEvent event) 
+    {
+    	//close account button 
     }
 
     @FXML
-    void SelectAmount(ActionEvent event) {
-
+    void AccountCreation(ActionEvent event) 
+    {
+    	//open account button
     }
 
     @FXML
-    void SelectChecking(ActionEvent event) {
-
+    void DepositClick(ActionEvent event) 
+    {
+    	//deposit button
     }
 
     @FXML
-    void SelectMoneyMarket(ActionEvent event) {
-
+    void SelectAmount(ActionEvent event) 
+    {
+    	//Amount textfield for deposit/withdraw
     }
 
     @FXML
-    void SelectSavings(ActionEvent event) {
-
+    void SelectChecking(ActionEvent event) 
+    {
+    	//radio button for checking account create/close
+    }
+    
+    @FXML
+    void checkDD(ActionEvent event) 
+    {
+    	//checkbox for Direct Deposit in create
     }
 
     @FXML
-    void WithdrawClick(ActionEvent event) {
-
+    void SelectMoneyMarket(ActionEvent event) 
+    {
+    	//radio button for money market account create/close
     }
 
     @FXML
-    void checkDD(ActionEvent event) {
-
+    void SelectSavings(ActionEvent event) 
+    {
+    	//radio button for savings account create/close
+    }
+   
+    @FXML
+    void checkLoyal(ActionEvent event) 
+    {
+    	//checkbox for loyalty in create
     }
 
     @FXML
-    void checkLoyal(ActionEvent event) {
-
+    void WithdrawClick(ActionEvent event) 
+    {
+    	//withdraw button
+    }
+    
+    @FXML
+    void clickPrint(ActionEvent event) 
+    {
+    	//Print button
     }
 
     @FXML
-    void clickPrint(ActionEvent event) {
-
+    void selectPrint(ActionEvent event) 
+    {
+    	//Standard print radio button
     }
 
     @FXML
-    void getDate(ActionEvent event) {
-
+    void selectPrintDate(ActionEvent event) 
+    {
+    	//Printing by date created radio button
     }
 
     @FXML
-    void getFirst(ActionEvent event) {
-
-    }
-
-    @FXML
-    void getLast(ActionEvent event) {
-
-    }
-
-    @FXML
-    void selectPrint(ActionEvent event) {
-
-    }
-
-    @FXML
-    void selectPrintDate(ActionEvent event) {
-
-    }
-
-    @FXML
-    void selectPrintLast(ActionEvent event) {
-
+    void selectPrintLast(ActionEvent event) 
+    {
+    	//printing by last name radio button
     }
 
     
@@ -141,7 +158,8 @@ public class TransactionController
  
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
-    void initialize() {
+    void initialize() 
+    {
 
     }
 }
