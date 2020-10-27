@@ -54,12 +54,14 @@ public class TransactionController
     @FXML
     void getDate(ActionEvent event) 
     {
+    	
     	//date text field to take input create/close/deposit/withdraw
     }
 
     @FXML
     void getFirst(ActionEvent event) 
     {
+    	
     	//first name text field to take input create/close/deposit/withdraw
     }
 

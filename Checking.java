@@ -1,38 +1,45 @@
 /**
- * The checking class creats the cheaking account objects and the intrest with it
- * 
+ * The checking class creates the checking account objects and the interest with it
+ * @author Jonathan Cattuna, George Job 
  *
  */
-public class Checking extends Account 
-{
+
+
+public class Checking extends Account {
 	private boolean directDeposit;
+	
 	/**
-	 * create checking account object
-	 * @param fName
-	 * @param lName
-	 * @param amount
-	 * @param date
-	 * @param dd
+	 * Creates a Checking account
+	 * @param holder
+	 * @param balance
+	 * @param dateOpen
+	 * @param directDeposit
 	 */
-	public Checking(String fName, String lName, double amount, Date date, boolean dd)
+	public Checking(Profile holder, double balance, Date dateOpen, boolean directDeposit)
 	{
-		super(fName, lName, amount, date);
-		this.directDeposit = dd;
+		super(holder, balance, dateOpen);
+		this.directDeposit = directDeposit;
 	}
-	/**
-	 * Monthly intrest
-	 * @return
-	 */
-	public double monthlyIntrest()
+	
+	public boolean isDirectDeposit()
 	{
-		return 0;
+		return directDeposit;
 	}
-	/**
-	 * monthly fee
-	 * @return
-	 */
-	public double monthlyFee()
-	{
-		return 0;
+
+	@Override
+	public double monthlyFee() {
+		if(directDeposit || getBalance() >= 1500)
+		{
+			return 0;
+		}
+		else
+		{
+			return 25;
+		}
+	}
+
+	@Override
+	public double monthlyInterest() {
+		return (getBalance() * 0.0005 * (0.08333));
 	}
 }

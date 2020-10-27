@@ -1,31 +1,34 @@
 /**
  * Date class to save the date each account was opened and closed
- * 
+ * @author Jonathan Cattuna, George Job
  *
  */
+
 public class Date implements Comparable<Date>
 {
 	private int year;
 	private int month;
 	private int day;
+	
 	/**
-	 * creates the date object
+	 * Creates a date object
 	 * @param day
 	 * @param month
 	 * @param year
 	 */
-	public Date(int day, int month, int year)
+	public Date(int month, int day, int year)
 	{
 		this.year = year;
 		this.month = month;
 		this.day = day;
 	}
-	/**
-	 * compareTO mehtod to make sure the date and time match up
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
-	@Override
 	public int compareTo(Date date)
 	{ 
+		
 		if(this.year == date.year)
 		{
 			if(this.month == date.month)
@@ -38,21 +41,39 @@ public class Date implements Comparable<Date>
 			return this.year > date.year ? 1 : this.year < date.year ? -1 : 0;
 		}		
 	} //return 0, 1, or -1
-	/**
-	 * ToString to test
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
 	 */
-	@Override
 	public String toString() 
 	{ 
-		return day + "/" + month + "/" + year;
+		return month + "/" + day + "/" + year;
 	} //in the format mm/dd/yyyy
 	
 	/**
-	 * isValid to test if the date is valid or not
-	 * @return
+	 * Determines whether or not a date is a valid date
+	 * @return true if date is valid, false if date is not valid
 	 */
 	public boolean isValid() 
 	{
-		return year >= 0 && year <= 2020 && month >= 1 && month <= 12 && day >= 1 && day <= 31;
+		if(month == 2)
+		{
+			if(year % 4 == 0)
+			{
+				return year >= 0 && year <= 2020 && month >= 1 && month <= 12 && day >= 1 && day <= 29;
+			}
+			else
+			{
+				return year >= 0 && year <= 2020 && month >= 1 && month <= 12 && day >= 1 && day <= 28;
+			}
+		}
+		else if(month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+		{
+			return year >= 0 && year <= 2020 && month >= 1 && month <= 12 && day >= 1 && day <= 31;
+		}
+		else
+		{
+			return year >= 0 && year <= 2020 && month >= 1 && month <= 12 && day >= 1 && day <= 30;
+		}
 	}
 }

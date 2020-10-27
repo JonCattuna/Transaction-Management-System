@@ -1,71 +1,92 @@
-
-
-import java.util.Scanner;
-
 /**
  * This class is the interface class it holds the scanner and takes in the users input
- * 
+ * @author Jonathan Cattuna, George Job
  *
  */
+
+import java.util.Scanner;
 
 public class TransactionManager 
 {
 	String first;
 	String last;
-	Float amount;
-	boolean loyal;
+	Float amount = 0.0f;
+	boolean loyal = false;
 	String date;
 	private TransactionManager manager;
-	private Account Saccount;
-	private Account Caccount;
-	private Account Maccount;
 	//private AccountDatabase database;
 	
 	AccountDatabase database = new AccountDatabase();
-	/**
-	 * private method creatings a transaction manager object
-	 */
-	private TransactionManager()
+	
+	public TransactionManager()
 	{
-		manager = new TransactionManager();
+		//manager = new TransactionManager();
 	}
 	
-	/*private Account parseCommand(String[] cmdArray)
-	{
-		String first = cmdArray[1];
-		String last = cmdArray[2];
-		Float amount = Float.parseFloat(cmdArray[3]);
-		boolean loyal = Boolean.parseBoolean(cmdArray[4]);
-		return new Account(first, last, amount, loyal);
-	}*/
 	/**
-	 * creates the scanners and takes command line input uses switch cases to decifer input
+	 * Run the transaction process
 	 */
 	public void run()
-	{
-		System.out.println("Running manager");
+	{	
+		System.out.println("Transaction processing starts.....");
 		boolean transacting = true;
 		while(transacting)
 		{
 			Scanner input = new Scanner(System.in);
 			String cmd = input.nextLine();
 			String[] cmdArray = cmd.split(" ");
-			//Try {
 			
 			switch(cmdArray[0])
 			{
-				
 				case "OC":
 					if(cmdArray.length == 6)
 					{
 						//Opens checking account with first last amount loyal
 						first = cmdArray[1];
 						last = cmdArray[2];
-						amount = Float.parseFloat(cmdArray[3]);
+						try
+						{
+							amount = Float.parseFloat(cmdArray[3]);
+						}
+						catch(NumberFormatException e)
+						{
+							System.out.println("Input data type mismatch.");
+							break;
+						}
 						date = cmdArray[4];
-						loyal = Boolean.parseBoolean(cmdArray[5]);
-						database.add(Caccount);
-						System.out.println("Account opened and added to the database.");
+						
+						if(cmdArray[5].toLowerCase().equals("true"))
+						{
+							loyal = true;
+						}
+						else if(cmdArray[5].toLowerCase().equals("false"))
+						{
+							loyal = false;
+						}
+						else
+						{
+							System.out.println("Input data type mismatch");
+							break;
+						}
+						
+						String[] dateComponents = date.split("/");
+						Date accountDate = new Date(Integer.parseInt(dateComponents[0]), Integer.parseInt(dateComponents[1]), Integer.parseInt(dateComponents[2]));
+						if(!accountDate.isValid())
+						{
+							System.out.println(accountDate + " is not a valid date!");
+							break;
+						}
+						
+						Checking newChecking = new Checking(new Profile(first,last), amount, accountDate, loyal);
+						
+						if(database.add(newChecking))
+						{
+							System.out.println("Account opened and added to the database.");
+						}
+						else
+						{
+							System.out.println("Account is already in the database.");
+						}
 					}
 					else
 					{
@@ -75,14 +96,53 @@ public class TransactionManager
 				case "OS":
 					if(cmdArray.length == 6)
 					{
-						//Opens savings account with first last amount loyal
+						//Opens checking account with first last amount loyal
 						first = cmdArray[1];
 						last = cmdArray[2];
-						amount = Float.parseFloat(cmdArray[3]);
+						try
+						{
+							amount = Float.parseFloat(cmdArray[3]);
+						}
+						catch(NumberFormatException e)
+						{
+							System.out.println("Input data type mismatch.");
+							break;
+						}
+						
 						date = cmdArray[4];
-						loyal = Boolean.parseBoolean(cmdArray[5]);
-						database.add(Saccount);
-						System.out.println("Account opened and added to the database.");
+						
+						if(cmdArray[5].toLowerCase().equals("true"))
+						{
+							loyal = true;
+						}
+						else if(cmdArray[5].toLowerCase().equals("false"))
+						{
+							loyal = false;
+						}
+						else
+						{
+							System.out.println("Input data type mismatch");
+							break;
+						}
+						
+						String[] dateComponents = date.split("/");
+						Date accountDate = new Date(Integer.parseInt(dateComponents[0]), Integer.parseInt(dateComponents[1]), Integer.parseInt(dateComponents[2]));
+						if(!accountDate.isValid())
+						{
+							System.out.println(accountDate + " is not a valid date!");
+							break;
+						}
+						
+						Savings newSavings = new Savings(new Profile(first,last), amount, accountDate, loyal);
+						
+						if(database.add(newSavings))
+						{
+							System.out.println("Account opened and added to the database.");
+						}
+						else
+						{
+							System.out.println("Account is already in the database.");
+						}
 					}
 					else
 					{
@@ -95,11 +155,35 @@ public class TransactionManager
 						//Opens money market account with first last amount
 						first = cmdArray[1];
 						last = cmdArray[2];
-						amount = Float.parseFloat(cmdArray[3]);
+						try
+						{
+							amount = Float.parseFloat(cmdArray[3]);
+						}
+						catch(NumberFormatException e)
+						{
+							System.out.println("Input data type mismatch.");
+							break;
+						}
 						date = cmdArray[4];
-						loyal = Boolean.parseBoolean(cmdArray[5]);
-						database.add(Maccount);
-						System.out.println("Account opened and added to the database.");
+						
+						String[] dateComponents = date.split("/");
+						Date accountDate = new Date(Integer.parseInt(dateComponents[0]), Integer.parseInt(dateComponents[1]), Integer.parseInt(dateComponents[2]));
+						if(!accountDate.isValid())
+						{
+							System.out.println(accountDate + " is not a valid date!");
+							break;
+						}
+						
+						MoneyMarket newMM = new MoneyMarket(new Profile(first,last), amount, accountDate);
+						
+						if(database.add(newMM))
+						{
+							System.out.println("Account opened and added to the database.");
+						}
+						else
+						{
+							System.out.println("Account is already in the database.");
+						}
 					}
 					else
 					{
@@ -112,8 +196,17 @@ public class TransactionManager
 						//Close checking account with first last
 						first = cmdArray[1];
 						last = cmdArray[2];
-						database.remove(Caccount);
-						System.out.println("Account closed and removed from the database.");
+						
+						Checking dummyChecking = new Checking(new Profile(first,last), amount, new Date(0,0,0), loyal);
+						
+						if(database.remove(dummyChecking))
+						{
+							System.out.println("Account closed and removed from the database.");
+						}
+						else
+						{
+							System.out.println("Account does not exist.");
+						}
 					}
 					else
 					{
@@ -126,8 +219,17 @@ public class TransactionManager
 						//close savings account with first last
 						first = cmdArray[1];
 						last = cmdArray[2];
-						database.remove(Saccount);
-						System.out.println("Account closed and removed from the database.");
+						
+						Savings dummySavings = new Savings(new Profile(first,last), amount, new Date(0,0,0), loyal);
+						
+						if(database.remove(dummySavings))
+						{
+							System.out.println("Account closed and removed from the database.");
+						}
+						else
+						{
+							System.out.println("Account does not exist.");
+						}
 					}
 					else
 					{
@@ -140,8 +242,17 @@ public class TransactionManager
 						//close money market amount with first last
 						first = cmdArray[1];
 						last = cmdArray[2];
-						database.remove(Maccount);
-						System.out.println("Account closed and removed from the database.");
+						
+						MoneyMarket dummyMM = new MoneyMarket(new Profile(first,last), amount, new Date(0,0,0));
+						
+						if(database.remove(dummyMM))
+						{
+							System.out.println("Account closed and removed from the database.");
+						}
+						else
+						{
+							System.out.println("Account does not exist.");
+						}
 					}
 					else
 					{
@@ -154,9 +265,26 @@ public class TransactionManager
 						//depoist to checking first last amount
 						first = cmdArray[1];
 						last = cmdArray[2];
-						amount = Float.parseFloat(cmdArray[3]);
-						database.deposit(Caccount, amount);
-						System.out.println(/*amount + */"Deposited into the account.");
+						try
+						{
+							amount = Float.parseFloat(cmdArray[3]);
+						}
+						catch(NumberFormatException e)
+						{
+							System.out.println("Input data type mismatch.");
+							break;
+						}
+						
+						Checking dummyChecking = new Checking(new Profile(first,last), amount, new Date(0,0,0), loyal);
+						
+						if(database.deposit(dummyChecking, amount))
+						{
+							System.out.println(amount + " deposited to account.");
+						}
+						else
+						{
+							System.out.println("Account does not exist.");
+						}
 					}
 					else
 					{
@@ -169,9 +297,26 @@ public class TransactionManager
 						//deposit to savings first last amount
 						first = cmdArray[1];
 						last = cmdArray[2];
-						amount = Float.parseFloat(cmdArray[3]);
-						database.deposit(Saccount, amount);
-						System.out.println(/*amount + */"Deposited into the account.");
+						try
+						{
+							amount = Float.parseFloat(cmdArray[3]);
+						}
+						catch(NumberFormatException e)
+						{
+							System.out.println("Input data type mismatch.");
+							break;
+						}
+						
+						Savings dummySavings = new Savings(new Profile(first,last), amount, new Date(0,0,0), loyal);
+						
+						if(database.deposit(dummySavings, amount))
+						{
+							System.out.println(amount + " deposited to account.");
+						}
+						else
+						{
+							System.out.println("Account does not exist.");
+						}
 					}
 					else
 					{
@@ -181,12 +326,28 @@ public class TransactionManager
 				case "DM":
 					if(cmdArray.length == 4)
 					{
-						//deposit to money market first last amount
 						first = cmdArray[1];
 						last = cmdArray[2];
-						amount = Float.parseFloat(cmdArray[3]);
-						database.deposit(Maccount, amount);
-						System.out.println(/*amount + */"Deposited into the account.");
+						try
+						{
+							amount = Float.parseFloat(cmdArray[3]);
+						}
+						catch(NumberFormatException e)
+						{
+							System.out.println("Input data type mismatch.");
+							break;
+						}
+						
+						MoneyMarket dummyMM = new MoneyMarket(new Profile(first,last), amount, new Date(0,0,0));
+						
+						if(database.deposit(dummyMM, amount))
+						{
+							System.out.println(amount + " deposited to account.");
+						}
+						else
+						{
+							System.out.println("Account does not exist.");
+						}
 					}
 					else
 					{
@@ -194,16 +355,37 @@ public class TransactionManager
 					}
 					break;
 				case "WC":
-					if(cmdArray.length == 3)
+					if(cmdArray.length == 4)
 					{
 						//withdraw checing first last amount
 						first = cmdArray[1];
 						last = cmdArray[2];
-						amount = Float.parseFloat(cmdArray[3]);
-						System.out.println(/*amount + */"withdrawn from the account.");
-						database.withdrawal(Caccount, amount);
-						//if withdraw is over total account amount
-						System.out.println("Insufficient funds");
+						try
+						{
+							amount = Float.parseFloat(cmdArray[3]);
+						}
+						catch(NumberFormatException e)
+						{
+							System.out.println("Input data type mismatch.");
+							break;
+						}
+						
+						Checking dummyChecking = new Checking(new Profile(first,last), amount, new Date(0,0,0), loyal);
+						
+						int withdrawResult = database.withdrawal(dummyChecking, amount);
+						if(withdrawResult == 0)
+						{
+							System.out.println(amount + " withdrawn from the account.");
+						}
+						else if(withdrawResult == 1)
+						{
+							//if withdraw is over total account amount
+							System.out.println("Insufficient funds.");
+						}
+						else if(withdrawResult == -1)
+						{
+							System.out.println("Account does not exist.");
+						}
 					}
 					else
 					{
@@ -211,16 +393,36 @@ public class TransactionManager
 					}
 					break;
 				case "WS":
-					if(cmdArray.length == 3)
+					if(cmdArray.length == 4)
 					{
-						//withdraw savings first last amount
 						first = cmdArray[1];
 						last = cmdArray[2];
-						amount = Float.parseFloat(cmdArray[3]);
-						System.out.println(/*amount + */"withdrawn from the account.");
-						database.withdrawal(Saccount, amount);
-						//if withdraw is over total account amount
-						System.out.println("Insufficient funds");
+						try
+						{
+							amount = Float.parseFloat(cmdArray[3]);
+						}
+						catch(NumberFormatException e)
+						{
+							System.out.println("Input data type mismatch.");
+							break;
+						}
+						
+						Savings dummySavings = new Savings(new Profile(first,last), amount, new Date(0,0,0), loyal);
+						
+						int withdrawResult = database.withdrawal(dummySavings, amount);
+						if(withdrawResult == 0)
+						{
+							System.out.println(amount + " withdrawn from the account.");
+						}
+						else if(withdrawResult == 1)
+						{
+							//if withdraw is over total account amount
+							System.out.println("Insufficient funds.");
+						}
+						else if(withdrawResult == -1)
+						{
+							System.out.println("Account does not exist.");
+						}
 					}
 					else
 					{
@@ -228,16 +430,37 @@ public class TransactionManager
 					}
 					break;
 				case "WM":
-					if(cmdArray.length == 3)
+					if(cmdArray.length == 4)
 					{
 						//withdraw money market first last amount'
 						first = cmdArray[1];
 						last = cmdArray[2];
-						amount = Float.parseFloat(cmdArray[3]);
-						System.out.println(/*amount + */"withdrawn from the account.");
-						database.withdrawal(Maccount, amount);
-						//if withdraw is over total account amount
-						System.out.println("Insufficient funds");
+						try
+						{
+							amount = Float.parseFloat(cmdArray[3]);
+						}
+						catch(NumberFormatException e)
+						{
+							System.out.println("Input data type mismatch.");
+							break;
+						}
+						
+						MoneyMarket dummyMM = new MoneyMarket(new Profile(first,last), amount, new Date(0,0,0));
+						
+						int withdrawResult = database.withdrawal(dummyMM, amount);
+						if(withdrawResult == 0)
+						{
+							System.out.println(amount + " withdrawn from the account.");
+						}
+						else if(withdrawResult == 1)
+						{
+							//if withdraw is over total account amount
+							System.out.println("Insufficient funds.");
+						}
+						else if(withdrawResult == -1)
+						{
+							System.out.println("Account does not exist.");
+						}
 					}
 					else
 					{
@@ -246,49 +469,48 @@ public class TransactionManager
 					break;
 				case "PA":
 					//print list of all acounts
-					System.out.println("--Listing accounts in the database--");
-					database.printAccounts();
-					System.out.println("--end of listing--");
+					if(database.getSize() > 0)
+					{
+						System.out.println("--Listing accounts in the database--");
+						database.printAccounts();
+						System.out.println("--end of listing--");
+					}
+					else
+					{
+						System.out.println("Database is empty.");
+					}
 					break;
 				case "PD":
-					System.out.println("--Printing statements by data opened--");
-					database.printByDateOpen();
+					if(database.getSize() > 0)
+					{
+						System.out.println("--Printing statements by data opened--");
+						database.printByDateOpen();
+					}
+					else
+					{
+						System.out.println("Database is empty.");
+					}
 					//calculate list of monthly intrests + fees
 					//print account statements in sorted by opening dates
 					break;
 				case "PN":
-					System.out.println("--Printing statements by last name--");
-					
-					database.printByLastName();
-					//Same as PD, but sorted bt last names in acending order
+					if(database.getSize() > 0)
+					{
+						System.out.println("--Printing statements by last name--");
+						database.printByLastName();
+					}
+					else
+					{
+						System.out.println("Database is empty.");
+					}
 					break;
 				case "Q":
 					System.out.println("Transaction processing completed.");
 					transacting = false;
 					break;
 				default:
-					System.out.println("Invalid Command");
-					
-					
-				/*	
-				catch(NumberFormatException e)
-				{
-					System.out.println("Number format mismatch");
-				}
-				catch (InputMismatchException e)
-				{
-					System.out.println("Input data type mismatch");
-				}
-				
-				catch (Exception e)
-				{
-					System.out.println("Invalid Command");
-				}	
-				*/
-				
-				
+					System.out.println("Command '" + cmdArray[0] + "' not supported!");
 			}
-			//}
 		}
 	}
 	

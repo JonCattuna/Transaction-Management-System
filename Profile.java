@@ -1,43 +1,37 @@
 /**
  * Profile class stores proiles to easily catgorize accounts
- * 
+ *  @author Jonathan Cattuna, George Job
  *
  */
-public class Profile
-{
+
+public class Profile {
 	private String fname;
 	private String lname;
+	
 	/**
-	 * creats the profile object
-	 * @param fname
-	 * @param lname
+	 * Creates profile object
+	 * @param fname First name
+	 * @param lname Last name
 	 */
 	public Profile(String fname, String lname)
 	{
 		this.fname = fname;
 		this.lname = lname;
 	}
+	
 	/**
-	 * gets the first name from the account
-	 * @return
+	 * @return first name
 	 */
 	public String getFname()
 	{
 		return fname;
 	}
+	
 	/**
-	 * gets the last name from the account
-	 * @return
+	 * @return last name
 	 */
 	public String getLname()
 	{
 		return lname;
-	}
-	/**
-	 * toString for testing
-	 */
-	public String toString()
-	{
-		return this.fname + "" + this.lname;
 	}
 }

@@ -30,7 +30,7 @@
                         </Text>
                      </top>
                      <center>
-                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="130.0" text="Button" BorderPane.alignment="CENTER" />
+                        <Button mnemonicParsing="false" onAction="#importFile" prefHeight="34.0" prefWidth="130.0" text="Button" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                </bottom>
@@ -68,6 +68,7 @@
                         <Font size="30.0" />
                      </font>
                   </Text>
+                  <TextField layoutX="191.0" layoutY="264.0" prefHeight="92.0" prefWidth="217.0" />
                </children>
             </AnchorPane>
         </content>
@@ -81,8 +82,8 @@
                      <children>
                         <RadioButton mnemonicParsing="false" onAction="#SelectSavings" text="Savings" />
                         <RadioButton layoutY="-61.0" mnemonicParsing="false" onAction="#SelectMoneyMarket" prefHeight="54.0" prefWidth="101.0" text="Money Market" />
-                        <RadioButton layoutY="41.0" mnemonicParsing="false" onAction="#SelectChecking" prefHeight="42.0" prefWidth="227.0" text="Checking" />
-                        <CheckBox layoutX="85.0" layoutY="55.0" mnemonicParsing="false" onAction="#checkDD" prefHeight="17.0" prefWidth="115.0" text="Direct Deposit" />
+                        <RadioButton layoutY="36.0" mnemonicParsing="false" onAction="#SelectChecking" prefHeight="42.0" prefWidth="227.0" text="Checking" />
+                        <CheckBox layoutX="85.0" layoutY="47.0" mnemonicParsing="false" onAction="#checkDD" prefHeight="17.0" prefWidth="115.0" text="Direct Deposit" />
                         <CheckBox layoutX="85.0" layoutY="3.0" mnemonicParsing="false" onAction="#checkLoyal" prefHeight="16.0" prefWidth="81.0" text="isLoyal" />
                      </children>
                   </Group>
