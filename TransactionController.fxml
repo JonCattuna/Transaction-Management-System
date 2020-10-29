@@ -30,7 +30,7 @@
                         </Text>
                      </top>
                      <center>
-                        <Button mnemonicParsing="false" onAction="#importFile" prefHeight="34.0" prefWidth="130.0" text="Button" BorderPane.alignment="CENTER" />
+                        <Button fx:id="importButton" mnemonicParsing="false" onAction="#importFile" prefHeight="34.0" prefWidth="130.0" text="Button" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                </bottom>
@@ -57,106 +57,65 @@
                <children>
                   <Group layoutX="300.0" layoutY="140.0">
                      <children>
-                        <RadioButton mnemonicParsing="false" onAction="#selectPrintLast" prefHeight="18.0" prefWidth="193.0" text="Print by last name" />
-                        <RadioButton layoutY="-66.0" mnemonicParsing="false" onAction="#selectPrint" prefHeight="54.0" prefWidth="159.0" text="Print standard" />
-                        <RadioButton layoutY="47.0" mnemonicParsing="false" onAction="#selectPrintDate" prefHeight="18.0" prefWidth="212.0" text="Print by date opened" />
+                        <RadioButton fx:id="PrintLNrb" mnemonicParsing="false" onAction="#selectPrintLast" prefHeight="18.0" prefWidth="193.0" text="Print by last name" />
+                        <RadioButton fx:id="PrintSrb" layoutY="-66.0" mnemonicParsing="false" onAction="#selectPrint" prefHeight="54.0" prefWidth="159.0" text="Print standard" />
+                        <RadioButton fx:id="PrintDOrb" layoutY="47.0" mnemonicParsing="false" onAction="#selectPrintDate" prefHeight="18.0" prefWidth="212.0" text="Print by date opened" />
                      </children>
                   </Group>
-                  <Button layoutX="158.0" layoutY="127.0" mnemonicParsing="false" onAction="#clickPrint" text="Button" />
+                  <Button fx:id="PrintButton" layoutX="158.0" layoutY="127.0" mnemonicParsing="false" onAction="#clickPrint" text="Button" />
                   <Text layoutX="206.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Printing Menu">
                      <font>
                         <Font size="30.0" />
                      </font>
                   </Text>
-                  <TextArea layoutX="168.0" layoutY="227.0" prefHeight="142.0" prefWidth="263.0" />
+                  <TextArea fx:id="PrintText" layoutX="168.0" layoutY="227.0" prefHeight="142.0" prefWidth="263.0" />
                </children>
             </AnchorPane>
         </content>
       </Tab>
-    <Tab text="Create">
+    <Tab text="Manager">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="153.0" layoutY="172.0" mnemonicParsing="false" onAction="#AccountCreation" text="Create" />
+                  <Button fx:id="createButton" layoutX="153.0" layoutY="172.0" mnemonicParsing="false" onAction="#AccountCreation" text="Create" />
                   <Group layoutX="236.0" layoutY="176.0">
                      <children>
-                        <RadioButton mnemonicParsing="false" onAction="#SelectSavings" text="Savings" />
-                        <RadioButton layoutY="-61.0" mnemonicParsing="false" onAction="#SelectMoneyMarket" prefHeight="54.0" prefWidth="101.0" text="Money Market" />
-                        <RadioButton layoutY="36.0" mnemonicParsing="false" onAction="#SelectChecking" prefHeight="42.0" prefWidth="227.0" text="Checking" />
-                        <CheckBox layoutX="102.0" layoutY="49.0" mnemonicParsing="false" onAction="#checkDD" prefHeight="17.0" prefWidth="115.0" text="Direct Deposit" />
-                        <CheckBox layoutX="102.0" mnemonicParsing="false" onAction="#checkLoyal" prefHeight="16.0" prefWidth="81.0" text="isLoyal" />
+                        <RadioButton fx:id="SrbM" mnemonicParsing="false" onAction="#SelectSavings" text="Savings" />
+                        <RadioButton fx:id="MMrbM" layoutY="-61.0" mnemonicParsing="false" onAction="#SelectMoneyMarket" prefHeight="54.0" prefWidth="101.0" text="Money Market" />
+                        <RadioButton fx:id="CrbM" layoutY="36.0" mnemonicParsing="false" onAction="#SelectChecking" prefHeight="42.0" prefWidth="227.0" text="Checking" />
+                        <CheckBox fx:id="checkDD" layoutX="102.0" layoutY="49.0" mnemonicParsing="false" onAction="#checkDD" prefHeight="17.0" prefWidth="115.0" text="Direct Deposit" />
+                        <CheckBox fx:id="checkLoyal" layoutX="102.0" mnemonicParsing="false" onAction="#checkLoyal" prefHeight="16.0" prefWidth="81.0" text="isLoyal" />
                      </children>
                   </Group>
-                  <DatePicker layoutX="418.0" layoutY="64.0" onAction="#getDate" promptText="Date" />
+                  <DatePicker fx:id="inputDateM" layoutX="418.0" layoutY="64.0" onAction="#getDate" promptText="Date" />
                   <ButtonBar layoutX="14.0" layoutY="114.0" prefHeight="40.0" prefWidth="200.0" />
                   <Text layoutX="181.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Creation ">
                      <font>
                         <Font size="30.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="40.0" layoutY="64.0" onAction="#getFirst" promptText="First" />
-                  <TextField layoutX="226.0" layoutY="64.0" onAction="#getLast" promptText="Last" />
-                  <TextArea layoutX="168.0" layoutY="254.0" prefHeight="116.0" prefWidth="263.0" />
+                  <TextField fx:id="inputFirstM" layoutX="40.0" layoutY="64.0" onAction="#getFirst" promptText="First" />
+                  <TextField fx:id="inputLastM" layoutX="226.0" layoutY="64.0" onAction="#getLast" promptText="Last" />
+                  <TextArea fx:id="AccountText" layoutX="168.0" layoutY="254.0" prefHeight="116.0" prefWidth="263.0" />
+                  <Button fx:id="closeButton" layoutX="152.0" layoutY="211.0" mnemonicParsing="false" onAction="#AccountClose" text="Close" />
                </children></AnchorPane>
       </content>
     </Tab>
-      <Tab text="Close">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Button layoutX="153.0" layoutY="172.0" mnemonicParsing="false" onAction="#AccountClose" text="Close" />
-                  <Group layoutX="236.0" layoutY="176.0">
-                     <children>
-                        <RadioButton mnemonicParsing="false" onAction="#SelectSavings" text="Savings" />
-                        <RadioButton layoutY="-62.0" mnemonicParsing="false" onAction="#SelectMoneyMarket" prefHeight="54.0" prefWidth="133.0" text="Money Market" />
-                        <RadioButton layoutY="45.0" mnemonicParsing="false" onAction="#SelectChecking" text="Checking" />
-                     </children>
-                  </Group>
-                  <TextField layoutX="43.0" layoutY="64.0" onAction="#getFirst" promptText="First" />
-                  <TextField layoutX="228.0" layoutY="64.0" onAction="#getLast" promptText="Last" />
-                  <DatePicker layoutX="408.0" layoutY="64.0" onAction="#getDate" promptText="Date" />
-                  <Text layoutX="192.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Closing">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Text>
-                  <TextArea layoutX="168.0" layoutY="247.0" prefHeight="126.0" prefWidth="263.0" />
-               </children>
-            </AnchorPane>
-         </content>
-      </Tab>
       <Tab text="Deposit">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="153.0" layoutY="173.0" mnemonicParsing="false" onAction="#DepositClick" text="Deposit" />
-                  <DatePicker layoutX="398.0" layoutY="65.0" onAction="#getDate" promptText="Date" />
-                  <TextField layoutX="249.0" layoutY="173.0" onAction="#SelectAmount" promptText="Amount" />
+                  <DatePicker fx:id="inputDateD" layoutX="398.0" layoutY="65.0" onAction="#getDate" promptText="Date" />
+                  <TextField fx:id="amountD" layoutX="249.0" layoutY="173.0" onAction="#SelectAmount" promptText="Amount" />
                   <Text layoutX="207.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deposit Menu">
                      <font>
                         <Font size="30.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="40.0" layoutY="65.0" onAction="#getFirst" promptText="First" />
-                  <TextField layoutX="218.0" layoutY="64.0" onAction="#getLast" prefHeight="26.0" prefWidth="176.0" promptText="Last" />
-               </children>
-            </AnchorPane>
-         </content>
-      </Tab>
-      <Tab text="Withdrawl">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Button layoutX="143.0" layoutY="171.0" mnemonicParsing="false" onAction="#WithdrawClick" text="Withdraw" />
-                  <DatePicker layoutX="404.0" layoutY="61.0" onAction="#getDate" promptText="Date" />
-                  <TextField layoutX="232.0" layoutY="171.0" onAction="#SelectAmount" promptText="Amount" />
-                  <Text layoutX="200.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Withdraw Menu">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Text>
-                  <TextField layoutX="40.0" layoutY="61.0" onAction="#getFirst" promptText="First" />
-                  <TextField layoutX="229.0" layoutY="60.0" onAction="#getLast" prefHeight="26.0" prefWidth="174.0" promptText="Last" />
+                  <TextField fx:id="inputFirstD" layoutX="40.0" layoutY="65.0" onAction="#getFirst" promptText="First" />
+                  <TextField fx:id="inputLastD" layoutX="218.0" layoutY="64.0" onAction="#getLast" prefHeight="26.0" prefWidth="176.0" promptText="Last" />
+                  <Button fx:id="DepositButton" layoutX="153.0" layoutY="173.0" mnemonicParsing="false" onAction="#Deposit" text="Deposit" />
+                  <Button fx:id="WithdrawButton" layoutX="436.0" layoutY="173.0" mnemonicParsing="false" onAction="#Withdraw" text="Withdraw" />
                </children>
             </AnchorPane>
          </content>

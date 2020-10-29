@@ -10,6 +10,12 @@ import javafx.fxml.FXML;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 public class TransactionController 
 {
@@ -21,8 +27,74 @@ public class TransactionController
     private URL location;
 
     
-    
-    
+    @FXML
+    private Button importButton;
+
+    @FXML
+    private RadioButton PrintLNrb;
+
+    @FXML
+    private RadioButton PrintSrb;
+
+    @FXML
+    private RadioButton PrintDOrb;
+
+    @FXML
+    private Button PrintButton;
+
+    @FXML
+    private TextArea PrintText;
+
+    @FXML
+    private Button createButton;
+
+    @FXML
+    private RadioButton SrbM;
+
+    @FXML
+    private RadioButton MMrbM;
+
+    @FXML
+    private RadioButton CrbM;
+
+    @FXML
+    private CheckBox checkDD;
+
+    @FXML
+    private CheckBox checkLoyal;
+
+    @FXML
+    private DatePicker inputDateM;
+
+    @FXML
+    private TextField inputFirstM;
+
+    @FXML
+    private TextField inputLastM;
+
+    @FXML
+    private TextArea AccountText;
+
+    @FXML
+    private Button closeButton;
+
+    @FXML
+    private Button DepositButton;
+
+    @FXML
+    private DatePicker inputDateD;
+
+    @FXML
+    private TextField amountD;
+
+    @FXML
+    private TextField inputFirstD;
+
+    @FXML
+    private TextField inputLastD;
+
+    @FXML
+    private Button WithdrawButton;
     
     @FXML
     void importFile(ActionEvent event) 
@@ -33,7 +105,7 @@ public class TransactionController
     		new ExtensionFilter("All Files", "*.txt"));
     	Stage stage = new Stage();
     	File SourceFile = chooser.showOpenDialog(stage);
-    	//Wreit code to read from file
+    	//Write code to read from file
     }
     
     
@@ -47,7 +119,7 @@ public class TransactionController
     		new ExtensionFilter("All Files", "*.txt"));
     	Stage stage = new Stage();
     	File TargetFile = chooser.showSaveDialog(stage);
-    	//Writee code to write to file
+    	//Write code to write to file
 
     }
     
@@ -82,11 +154,18 @@ public class TransactionController
     {
     	//open account button
     }
+    
+    @FXML
+    void Deposit(ActionEvent event) 
+    {
+    	//Deposit button
+
+    }
 
     @FXML
-    void DepositClick(ActionEvent event) 
+    void Withdraw(ActionEvent event) 
     {
-    	//deposit button
+    	//withdraw button
     }
 
     @FXML
@@ -124,12 +203,6 @@ public class TransactionController
     {
     	//checkbox for loyalty in create
     }
-
-    @FXML
-    void WithdrawClick(ActionEvent event) 
-    {
-    	//withdraw button
-    }
     
     @FXML
     void clickPrint(ActionEvent event) 
@@ -154,8 +227,11 @@ public class TransactionController
     {
     	//printing by last name radio button
     }
+    ////////////////////////////////////////////////////////////////////////////////////////
 
-    
+   
+
+
     
  
 
