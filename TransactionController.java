@@ -81,8 +81,7 @@ public class TransactionController
     @FXML
     private Button DepositButton;
 
-    @FXML
-    private DatePicker inputDateD;
+   
 
     @FXML
     private TextField amountD;
@@ -95,6 +94,29 @@ public class TransactionController
 
     @FXML
     private Button WithdrawButton;
+    
+    //////////////////////Date for the deposit/withdarw tab
+    @FXML
+    private TextField DayD;
+    
+
+    @FXML
+    private TextField MonthD;
+
+    @FXML
+    private TextField YearD;
+ //////////////////////////////////////////////////
+    
+    //////////////////////////////date for account manager tab
+    @FXML
+    private TextField DayM;
+
+    @FXML
+    private TextField MonthM;
+
+    @FXML
+    private TextField YearM;
+/////////////////////////////////////////////////////////////
     
     @FXML
     void importFile(ActionEvent event) 
@@ -123,12 +145,6 @@ public class TransactionController
 
     }
     
-    @FXML
-    void getDate(ActionEvent event) 
-    {
-    	
-    	//date text field to take input create/close/deposit/withdraw
-    }
 
     @FXML
     void getFirst(ActionEvent event) 
@@ -226,6 +242,24 @@ public class TransactionController
     void selectPrintLast(ActionEvent event) 
     {
     	//printing by last name radio button
+    }
+    
+    
+    
+    
+    @FXML
+    void inputDay(ActionEvent event) {
+
+    }
+
+    @FXML
+    void inputMonth(ActionEvent event) {
+
+    }
+
+    @FXML
+    void inputYear(ActionEvent event) {
+
     }
     ////////////////////////////////////////////////////////////////////////////////////////
 
