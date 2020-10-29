@@ -25,7 +25,7 @@ public class Main extends Application
 	}
 
 	@Override
-	public void start(Stage stage) 
+	public void start(Stage stage) throws Exception
 	{
 		try {			
 			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("TransactionController.fxml"));
