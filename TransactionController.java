@@ -117,7 +117,8 @@ public class TransactionController
     @FXML
     private TextField YearM;
 /////////////////////////////////////////////////////////////
-    
+    String ManagerFirstName;
+    String ManagerLastName;
     @FXML
     void importFile(ActionEvent event) 
     {
@@ -149,6 +150,8 @@ public class TransactionController
     @FXML
     void getFirst(ActionEvent event) 
     {
+    	ManagerFirstName = inputFirstM.getText();
+    	ManagerLastName = inputLastM.getText();
     	
     	//first name text field to take input create/close/deposit/withdraw
     }
@@ -168,12 +171,15 @@ public class TransactionController
     @FXML
     void AccountCreation(ActionEvent event) 
     {
+    	//System.out.println("Creating accoutn");
+    	AccountText.setText(ManagerFirstName + " " + ManagerLastName);
     	//open account button
     }
     
     @FXML
     void Deposit(ActionEvent event) 
     {
+    	
     	//Deposit button
 
     }
@@ -181,6 +187,7 @@ public class TransactionController
     @FXML
     void Withdraw(ActionEvent event) 
     {
+    	
     	//withdraw button
     }
 
