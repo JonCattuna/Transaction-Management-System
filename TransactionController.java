@@ -10,12 +10,14 @@ import javafx.fxml.FXML;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
 public class TransactionController 
 {
@@ -29,7 +31,7 @@ public class TransactionController
     
     @FXML
     private Button importButton;
-
+///////////////////////////////////////////Printing radio button group
     @FXML
     private RadioButton PrintLNrb;
 
@@ -38,7 +40,10 @@ public class TransactionController
 
     @FXML
     private RadioButton PrintDOrb;
-
+    
+    @FXML
+    private Group PrintGroup;
+///////////////////////////////////////////////
     @FXML
     private Button PrintButton;
 
@@ -47,21 +52,32 @@ public class TransactionController
 
     @FXML
     private Button createButton;
-
+/////////////////////////////grouping account radio buttons
     @FXML
     private RadioButton SrbM;
+    //RadioButton SrBM = new RadioButton();
 
     @FXML
     private RadioButton MMrbM;
 
     @FXML
     private RadioButton CrbM;
-
+    
+    @FXML
+    private Group ManagerGroup;
+    //Group ManagerGroup = new Group;
+    //ToggleGroup ManagerGroup;
+    //ManagerGroup.getChildren().add(MMrbM);
+    //SrBM.setToggleGroup(ManagerGroup);
+    
+////////////////////////////////////////////////
     @FXML
     private CheckBox checkDD;
+    boolean dd = false;
 
     @FXML
     private CheckBox checkLoyal;
+    boolean loyal = false;
 
     @FXML
     private DatePicker inputDateM;
@@ -119,6 +135,8 @@ public class TransactionController
 /////////////////////////////////////////////////////////////
     String ManagerFirstName;
     String ManagerLastName;
+    String DepositFirstName;
+    String DepositLastName;
     @FXML
     void importFile(ActionEvent event) 
     {
@@ -150,8 +168,9 @@ public class TransactionController
     @FXML
     void getFirst(ActionEvent event) 
     {
-    	ManagerFirstName = inputFirstM.getText();
-    	ManagerLastName = inputLastM.getText();
+    	ManagerFirstName = inputFirstM.getText();    	
+    	DepositFirstName = inputFirstD.getText();
+    	
     	
     	//first name text field to take input create/close/deposit/withdraw
     }
@@ -159,12 +178,15 @@ public class TransactionController
     @FXML
     void getLast(ActionEvent event) 
     {
+    	DepositLastName = inputLastD.getText();
+    	ManagerLastName = inputLastM.getText();
     	//last name text field to take input create/close/deposit/withdraw
     }
     
     @FXML
     void AccountClose(ActionEvent event) 
     {
+    	AccountText.setText("Closing Account " + ManagerFirstName + " " + ManagerLastName);
     	//close account button 
     }
 
@@ -172,7 +194,7 @@ public class TransactionController
     void AccountCreation(ActionEvent event) 
     {
     	//System.out.println("Creating accoutn");
-    	AccountText.setText(ManagerFirstName + " " + ManagerLastName);
+    	AccountText.setText("New Account " + ManagerFirstName + " " + ManagerLastName);
     	//open account button
     }
     
@@ -200,33 +222,52 @@ public class TransactionController
     @FXML
     void SelectChecking(ActionEvent event) 
     {
+    	checkLoyal.setDisable(true);
+    	checkLoyal.setSelected(false);
+    	checkDD.setDisable(false);
+    	
     	//radio button for checking account create/close
     }
-    
-    @FXML
-    void checkDD(ActionEvent event) 
-    {
-    	//checkbox for Direct Deposit in create
-    }
-
+   
     @FXML
     void SelectMoneyMarket(ActionEvent event) 
     {
+    	checkDD.setDisable(true);
+    	checkDD.setSelected(false);
+    	checkLoyal.setDisable(true);
+    	checkLoyal.setSelected(false);
+    	
     	//radio button for money market account create/close
     }
 
     @FXML
     void SelectSavings(ActionEvent event) 
-    {
+    {    	
+    	checkLoyal.setDisable(false);
+    	checkDD.setDisable(true);
+    	checkDD.setSelected(false);
+  
+    	//checkLoayal.setDisable(true);
+    	
     	//radio button for savings account create/close
     }
    
+    
+    @FXML
+    void checkDD(ActionEvent event) 
+    {
+    	
+    	//checkbox for Direct Deposit in create
+    }
+
     @FXML
     void checkLoyal(ActionEvent event) 
     {
+    	
     	//checkbox for loyalty in create
     }
-    
+ 
+//////////////////////////////////Printing radio buttons methods
     @FXML
     void clickPrint(ActionEvent event) 
     {
@@ -250,7 +291,7 @@ public class TransactionController
     {
     	//printing by last name radio button
     }
-    
+///////////////////////////////////////////////////////////    
     
     
     
@@ -279,7 +320,18 @@ public class TransactionController
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() 
     {
-
+    	
+    	ToggleGroup ManagerGroup = new ToggleGroup();
+    	SrbM.setToggleGroup(ManagerGroup);
+    	MMrbM.setToggleGroup(ManagerGroup);
+    	CrbM.setToggleGroup(ManagerGroup);
+    	
+    	ToggleGroup PrintGroup = new ToggleGroup();
+    	PrintLNrb.setToggleGroup(PrintGroup);
+    	PrintSrb.setToggleGroup(PrintGroup);
+    	PrintDOrb.setToggleGroup(PrintGroup);
+    	
+    	
     }
 }
 
