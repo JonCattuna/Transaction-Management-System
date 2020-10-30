@@ -137,6 +137,22 @@ public class TransactionController
     String ManagerLastName;
     String DepositFirstName;
     String DepositLastName;
+    
+    /////Creating printing booleans///////////
+    boolean Sprint = false;
+    boolean Lprint = false;
+    boolean Dprint = false;
+    
+    ///////////////Day month year//////////////////
+    String dayM;
+    String monthM;
+    String yearM;
+    
+    String dayD;
+    String monthD;
+    String yearD;
+    
+    
     @FXML
     void importFile(ActionEvent event) 
     {
@@ -186,7 +202,7 @@ public class TransactionController
     @FXML
     void AccountClose(ActionEvent event) 
     {
-    	AccountText.setText("Closing Account " + ManagerFirstName + " " + ManagerLastName);
+    	AccountText.setText("Closing Account " + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);
     	//close account button 
     }
 
@@ -194,7 +210,7 @@ public class TransactionController
     void AccountCreation(ActionEvent event) 
     {
     	//System.out.println("Creating accoutn");
-    	AccountText.setText("New Account " + ManagerFirstName + " " + ManagerLastName);
+    	AccountText.setText("New Account " + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);
     	//open account button
     }
     
@@ -271,24 +287,55 @@ public class TransactionController
     @FXML
     void clickPrint(ActionEvent event) 
     {
+    	if(Sprint == true)
+    	{
+    		//printAccounts();
+    		PrintText.setText("PRINTING NORAML ACCOUTN LSIT");
+    	}
+    	else if(Dprint == true)
+    	{
+    		//printByDateOpen();
+    		PrintText.setText("PRINGTING DATE ORDERED LIST");
+    	}
+    	else if(Lprint == true)
+    	{
+    		//printByLastName();
+    		PrintText.setText("PRINTING LASST NAME ORDRED ACCOUTN LSIT");
+    	}
+    	else
+    	{
+    		//printAccounts();
+    		PrintText.setText("PRINTING NORAML ACCOUTN LSIT");
+    	}
     	//Print button
     }
 
     @FXML
     void selectPrint(ActionEvent event) 
     {
+    	Sprint = true;
+    	Dprint = false;
+    	Lprint = false;
+    	
     	//Standard print radio button
     }
 
     @FXML
     void selectPrintDate(ActionEvent event) 
     {
+    	Dprint = true;
+    	Sprint = false;
+    	Lprint = false;
+    	
     	//Printing by date created radio button
     }
 
     @FXML
     void selectPrintLast(ActionEvent event) 
     {
+    	Lprint = true;
+    	Dprint = false;
+    	Sprint = false;
     	//printing by last name radio button
     }
 ///////////////////////////////////////////////////////////    
@@ -296,17 +343,25 @@ public class TransactionController
     
     
     @FXML
-    void inputDay(ActionEvent event) {
+    void inputDay(ActionEvent event) 
+    {
+    	dayM = DayM.getText();
+    	dayD = DayD.getText();
+    }
+
+    @FXML
+    void inputMonth(ActionEvent event) 
+    {
+    	monthM = MonthM.getText();
+    	monthD = MonthD.getText();
 
     }
 
     @FXML
-    void inputMonth(ActionEvent event) {
-
-    }
-
-    @FXML
-    void inputYear(ActionEvent event) {
+    void inputYear(ActionEvent event) 
+    {
+    	yearM = YearM.getText();
+    	yearD = YearD.getText();
 
     }
     ////////////////////////////////////////////////////////////////////////////////////////
