@@ -93,7 +93,7 @@
                      </font>
                   </Text>
                   <TextField fx:id="inputFirstM" layoutX="40.0" layoutY="64.0" onAction="#getFirst" prefHeight="26.0" prefWidth="136.0" promptText="First" />
-                  <TextField fx:id="inputLastM" layoutX="226.0" layoutY="64.0" onAction="#getLast" promptText="Last" />
+                  <TextField fx:id="inputLastM" layoutX="214.0" layoutY="64.0" onAction="#getLast" promptText="Last" />
                   <TextArea fx:id="AccountText" layoutX="97.0" layoutY="254.0" prefHeight="116.0" prefWidth="406.0" />
                   <Button fx:id="closeButton" layoutX="152.0" layoutY="211.0" mnemonicParsing="false" onAction="#AccountClose" text="Close" />
                   <TextField fx:id="DayM" layoutX="395.0" layoutY="63.0" onAction="#inputDay" prefHeight="26.0" prefWidth="48.0" promptText="DD" />

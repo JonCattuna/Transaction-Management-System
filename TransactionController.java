@@ -21,7 +21,7 @@ import javafx.scene.control.ToggleGroup;
 
 public class TransactionController 
 {
-
+	AccountDatabase data = new AccountDatabase();
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
 
@@ -152,6 +152,11 @@ public class TransactionController
     String monthD;
     String yearD;
     
+    ///////////////accoutn radi obuttons booleans
+    boolean checking = false;
+    boolean saving = false;
+    boolean money = false;
+    
     
     @FXML
     void importFile(ActionEvent event) 
@@ -202,7 +207,29 @@ public class TransactionController
     @FXML
     void AccountClose(ActionEvent event) 
     {
-    	AccountText.setText("Closing Account " + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);
+    	if (checkLoyal.isSelected() && saving == true)
+    	{
+    		AccountText.setText("Closing Loyal Savings Account" + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);    		
+    	}
+    	else if (checkDD.isSelected() && checking == true)
+    	{
+    		AccountText.setText("Closing direct deposit checkinga account " + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);
+    	}
+    	else if (checking == true)
+    	{
+    		AccountText.setText("Closing checkinga account " + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);
+    	}
+    	else if (saving == true)
+    	{
+    		AccountText.setText("Closing saving account " + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);
+    	}
+    	else if (money == true)
+    	{
+    		AccountText.setText("Closing money market account " + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);
+    	}
+    	else
+    		AccountText.setText("Please select an accoutn type");
+    	//AccountText.setText("Closing Account " + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);
     	//close account button 
     }
 
@@ -210,7 +237,29 @@ public class TransactionController
     void AccountCreation(ActionEvent event) 
     {
     	//System.out.println("Creating accoutn");
-    	AccountText.setText("New Account " + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);
+    	if (checkLoyal.isSelected() && saving == true)
+    	{
+    		AccountText.setText("New Loyal Savings Account" + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);    		
+    	}
+    	else if (checkDD.isSelected() && checking == true)
+    	{
+    		AccountText.setText("New direct deposit checkinga account " + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);
+    	}
+    	else if (checking == true)
+    	{
+    		AccountText.setText("New checkinga account " + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);
+    	}
+    	else if (saving == true)
+    	{
+    		AccountText.setText("New saving account " + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);
+    	}
+    	else if (money == true)
+    	{
+    		AccountText.setText("New money market account " + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);
+    	}
+    	else
+    		AccountText.setText("Please select an accoutn type");
+    	//AccountText.setText("New Account " + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);
     	//open account button
     }
     
@@ -241,6 +290,9 @@ public class TransactionController
     	checkLoyal.setDisable(true);
     	checkLoyal.setSelected(false);
     	checkDD.setDisable(false);
+    	checking = true;
+    	saving = false;
+    	money = false;
     	
     	//radio button for checking account create/close
     }
@@ -252,6 +304,10 @@ public class TransactionController
     	checkDD.setSelected(false);
     	checkLoyal.setDisable(true);
     	checkLoyal.setSelected(false);
+    	checking = false;
+    	saving = false;
+    	money = true;
+    	
     	
     	//radio button for money market account create/close
     }
@@ -262,6 +318,10 @@ public class TransactionController
     	checkLoyal.setDisable(false);
     	checkDD.setDisable(true);
     	checkDD.setSelected(false);
+    	checking = false;
+    	saving = true;
+    	money = false;
+    	
   
     	//checkLoayal.setDisable(true);
     	
@@ -289,22 +349,22 @@ public class TransactionController
     {
     	if(Sprint == true)
     	{
-    		//printAccounts();
+    		//printAccounts(data);
     		PrintText.setText("PRINTING NORAML ACCOUTN LSIT");
     	}
     	else if(Dprint == true)
     	{
-    		//printByDateOpen();
+    		//printByDateOpen(data);
     		PrintText.setText("PRINGTING DATE ORDERED LIST");
     	}
     	else if(Lprint == true)
     	{
-    		//printByLastName();
+    		//printByLastName(data);
     		PrintText.setText("PRINTING LASST NAME ORDRED ACCOUTN LSIT");
     	}
     	else
     	{
-    		//printAccounts();
+    		//printAccounts(data);
     		PrintText.setText("PRINTING NORAML ACCOUTN LSIT");
     	}
     	//Print button
