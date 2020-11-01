@@ -1,5 +1,6 @@
 /**
- * Sample Skeleton for 'TransactionController.fxml' Controller Class
+ * Controller class 'TransactionController.fxml' this class controls all aspects of the GUI
+ * @author Jon Cattuna, George Job
  */
 
 import java.io.File;
@@ -159,6 +160,10 @@ public class TransactionController
     
     
     @FXML
+    /**
+     * Write code to read from file
+     * @param event
+     */
     void importFile(ActionEvent event) 
     {
     	FileChooser chooser = new FileChooser();
@@ -167,12 +172,16 @@ public class TransactionController
     		new ExtensionFilter("All Files", "*.txt"));
     	Stage stage = new Stage();
     	File SourceFile = chooser.showOpenDialog(stage);
-    	//Write code to read from file
+    	//
     }
     
     
     
     @FXML
+    /**
+     * Write code to write to file
+     * @param event
+     */
     void exportFile(ActionEvent event) 
     {
     	FileChooser chooser = new FileChooser();
@@ -181,30 +190,42 @@ public class TransactionController
     		new ExtensionFilter("All Files", "*.txt"));
     	Stage stage = new Stage();
     	File TargetFile = chooser.showSaveDialog(stage);
-    	//Write code to write to file
+    	//
 
     }
     
 
     @FXML
+    /**
+     * first name text field to take input create/close/deposit/withdraw
+     * @param event
+     */
     void getFirst(ActionEvent event) 
     {
     	ManagerFirstName = inputFirstM.getText();    	
     	DepositFirstName = inputFirstD.getText();
     	
     	
-    	//first name text field to take input create/close/deposit/withdraw
+    	//
     }
 
     @FXML
+    /**
+     * last name text field to take input create/close/deposit/withdraw
+     * @param event
+     */
     void getLast(ActionEvent event) 
     {
     	DepositLastName = inputLastD.getText();
     	ManagerLastName = inputLastM.getText();
-    	//last name text field to take input create/close/deposit/withdraw
+    	//
     }
     
     @FXML
+    /**
+     * close account button 
+     * @param event
+     */
     void AccountClose(ActionEvent event) 
     {
     	if (checkLoyal.isSelected() && saving == true)
@@ -230,7 +251,7 @@ public class TransactionController
     	else
     		AccountText.setText("Please select an accoutn type");
     	//AccountText.setText("Closing Account " + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);
-    	//close account button 
+    	//
     }
 
     @FXML
@@ -260,31 +281,47 @@ public class TransactionController
     	else
     		AccountText.setText("Please select an accoutn type");
     	//AccountText.setText("New Account " + ManagerFirstName + " " + ManagerLastName + " " + dayM + "/" + monthM + "/" + yearM);
-    	//open account button
+    	//
     }
     
     @FXML
+    /**
+     * Deposit button
+     * @param event
+     */
     void Deposit(ActionEvent event) 
     {
     	
-    	//Deposit button
+    	
 
     }
 
     @FXML
+    /**
+     * withdraw button
+     * @param event
+     */
     void Withdraw(ActionEvent event) 
     {
     	
-    	//withdraw button
+    	
     }
 
     @FXML
+    /**
+     * Amount textfield for deposit/withdraw
+     * @param event
+     */
     void SelectAmount(ActionEvent event) 
     {
-    	//Amount textfield for deposit/withdraw
+    	
     }
 
     @FXML
+    /**
+     * radio button for checking account create/close
+     * @param event
+     */
     void SelectChecking(ActionEvent event) 
     {
     	checkLoyal.setDisable(true);
@@ -294,10 +331,14 @@ public class TransactionController
     	saving = false;
     	money = false;
     	
-    	//radio button for checking account create/close
+    	
     }
    
     @FXML
+    /**
+     * radio button for money market account create/close
+     * @param event
+     */
     void SelectMoneyMarket(ActionEvent event) 
     {
     	checkDD.setDisable(true);
@@ -309,10 +350,14 @@ public class TransactionController
     	money = true;
     	
     	
-    	//radio button for money market account create/close
+    	
     }
 
     @FXML
+    /**
+     * radio button for savings account create/close
+     * @param event
+     */
     void SelectSavings(ActionEvent event) 
     {    	
     	checkLoyal.setDisable(false);
@@ -325,26 +370,38 @@ public class TransactionController
   
     	//checkLoayal.setDisable(true);
     	
-    	//radio button for savings account create/close
+    	
     }
    
     
     @FXML
+    /**
+     * checkbox for Direct Deposit in create
+     * @param event
+     */
     void checkDD(ActionEvent event) 
     {
     	
-    	//checkbox for Direct Deposit in create
+    	
     }
 
     @FXML
+    /**
+     * checkbox for loyalty in create
+     * @param event
+     */
     void checkLoyal(ActionEvent event) 
     {
     	
-    	//checkbox for loyalty in create
+    	
     }
  
 //////////////////////////////////Printing radio buttons methods
     @FXML
+    /**
+     * Print button
+     * @param event
+     */
     void clickPrint(ActionEvent event) 
     {
     	if(Sprint == true)
@@ -367,42 +424,58 @@ public class TransactionController
     		//printAccounts(data);
     		PrintText.setText("PRINTING NORAML ACCOUTN LSIT");
     	}
-    	//Print button
+    	
     }
 
     @FXML
+    /**
+     * Standard print radio button
+     * @param event
+     */
     void selectPrint(ActionEvent event) 
     {
     	Sprint = true;
     	Dprint = false;
     	Lprint = false;
     	
-    	//Standard print radio button
+    	
     }
 
     @FXML
+    /**
+     * Printing by date created radio button
+     * @param event
+     */
     void selectPrintDate(ActionEvent event) 
     {
     	Dprint = true;
     	Sprint = false;
     	Lprint = false;
     	
-    	//Printing by date created radio button
+    	
     }
 
     @FXML
+    /**
+     * printing by last name radio button
+     * @param event
+     */
     void selectPrintLast(ActionEvent event) 
     {
     	Lprint = true;
     	Dprint = false;
     	Sprint = false;
-    	//printing by last name radio button
+    	//
     }
 ///////////////////////////////////////////////////////////    
     
     
     
     @FXML
+    /**
+     * date text field
+     * @param event
+     */
     void inputDay(ActionEvent event) 
     {
     	dayM = DayM.getText();
@@ -410,6 +483,10 @@ public class TransactionController
     }
 
     @FXML
+    /**
+     * month text field
+     * @param event
+     */
     void inputMonth(ActionEvent event) 
     {
     	monthM = MonthM.getText();
@@ -418,6 +495,10 @@ public class TransactionController
     }
 
     @FXML
+    /**
+     * year text field
+     * @param event
+     */
     void inputYear(ActionEvent event) 
     {
     	yearM = YearM.getText();
@@ -432,7 +513,10 @@ public class TransactionController
     
  
 
-    @FXML // This method is called by the FXMLLoader when initialization is complete
+    @FXML
+    /**
+     * This method is called by the FXMLLoader when initialization is complete 
+     */
     void initialize() 
     {
     	
